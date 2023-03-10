@@ -9,7 +9,7 @@ const Banner = () => {
     const bannerData = [
         {
             id: 1,
-            prev: 6,
+            prev: 4,
             next: 2,
             image: img1
         },
