@@ -1,14 +1,18 @@
 import React from 'react';
+import './Carousel.css'
 
-const Carousel = ({slide}) => {
-    const {id, image, prev, next} = slide;
+const Carousel = ({ slide }) => {
+    const { id, image, prev, next } = slide;
 
     return (
         <div id={`slide${id}`} className="carousel-item relative w-full">
-            <img src={image} alt='' className="w-full" />
+            <div className='carousel-img w-full '>
+                <img src={image} alt='' className="w-full h-96" />
+            </div>
             <div className="absolute flex justify-start transform -translate-y-1/2 left-20 top-1/4">
-                <h1 className='lg:text-5xl md:text-3xl sm:text-2xl font-bold text-white'>
-                    Need A Car 
+                <h1 className='lg:text-5xl md:text-3xl sm:text-2xl font-bold text-pink-500'>
+                    Touch Your Dream <br />
+                    In Own Hands
                 </h1>
             </div>
             <div className="absolute md:flex justify-start transform -translate-y-1/2 left-20 top-1/2 md:w-2/5 sm:w-2/3 hidden">
