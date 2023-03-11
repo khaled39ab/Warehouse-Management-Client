@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const SocialSignIn = () => {
     return (
         <div>
             <div className="relative flex items-center justify-center w-full mt-6 border border-t">
-                    <div className="absolute px-5 bg-white">Or</div>
+                    <div className="absolute px-5 bg-white ">Or</div>
                 </div>
                 <div className="flex mt-4 gap-x-2">
                     <button

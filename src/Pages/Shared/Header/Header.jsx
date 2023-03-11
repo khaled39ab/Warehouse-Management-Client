@@ -12,7 +12,8 @@ const Header = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link>Item 1</Link></li>
-                        <li tabIndex={0}>
+                        <li><Link>Item 2</Link></li>
+                        {/* <li tabIndex={0}>
                             <Link className="justify-between">
                                 Parent
                                 <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
@@ -21,11 +22,11 @@ const Header = () => {
                                 <li><Link>Submenu 1</Link></li>
                                 <li><Link>Submenu 2</Link></li>
                             </ul>
-                        </li>
+                        </li> */}
                         <li><Link>Item 3</Link></li>
                     </ul>
                 </div>
-                <Link className="btn btn-ghost normal-case text-xl">
+                <Link to={'/'} className="btn btn-ghost normal-case text-xl">
                     <img src={logo} alt="logo" />
                     <span>AutoCare</span>
                 </Link>
@@ -33,7 +34,8 @@ const Header = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li><Link>Item 1</Link></li>
-                    <li tabIndex={0}>
+                    <li><Link>Item 2</Link></li>
+                    {/* <li tabIndex={0}>
                         <Link>
                             Parent
                             <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
@@ -42,12 +44,12 @@ const Header = () => {
                             <li><Link>Submenu 1</Link></li>
                             <li><Link>Submenu 2</Link></li>
                         </ul>
-                    </li>
+                    </li> */}
                     <li><Link>Item 3</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className="btn">Get started</Link>
+                <Link to={'/signIn'} className="btn">Sign In </Link>
             </div>
         </div>
     );
