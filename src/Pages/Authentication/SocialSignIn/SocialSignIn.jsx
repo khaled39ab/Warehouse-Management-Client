@@ -40,14 +40,7 @@ const SocialSignIn = () => {
                     </button>
                 </div>
 
-                <p className="mt-8 text-xs font-light text-center text-gray-700">
-                    {" "}
-                    Don't have an account?{" "}
-                    <Link href="#" className="font-medium text-purple-600 hover:underline"
-                    >
-                        Sign up
-                    </Link>
-                </p>
+                
         </div>
     );
 };
