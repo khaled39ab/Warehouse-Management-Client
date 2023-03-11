@@ -6,8 +6,8 @@ const SignIn = () => {
     return (
         <div className="relative flex flex-col justify-center min-h-screen overflow-hidden" data-theme="aqua">
             <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl lg:max-w-xl">
-                <h1 className="text-3xl font-semibold text-center text-purple-700 uppercase">
-                    Sign in
+                <h1 className="text-3xl font-semibold text-center text-purple-700 uppercase underline decoration-wavy">
+                    Please Sign in
                 </h1>
                 <form className="mt-6">
                     <div className="mb-2">
@@ -39,7 +39,7 @@ const SignIn = () => {
                     </Link>
                     <div className="mt-6">
                         <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
-                            Login
+                            Sign In
                         </button>
                     </div>
                 </form>
@@ -47,7 +47,7 @@ const SignIn = () => {
                 <p className="mt-8 text-xs font-semibold text-center text-gray-700">
                     {" "}
                     Don't have an account?{" "}
-                    <Link href="#" className="font-bold text-purple-600 hover:underline"
+                    <Link to={'/signUp'} className="font-bold text-purple-600 hover:underline"
                     >
                         Sign Up
                     </Link>
