@@ -6,6 +6,7 @@ import SignUp from "../../Pages/Authentication/SignUp/SignUp";
 import NotFound from "../../Pages/NotFound/NotFound";
 import About from "../../Pages/About Us/About";
 import Blogs from "../../Pages/Blogs/Blogs";
+import Store from "../../Store Items/Store";
 
 export const router = createBrowserRouter([
     {
@@ -34,7 +35,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/store',
-                // element: 
+                element: <Store />
             },
             {
                 path: '*',
