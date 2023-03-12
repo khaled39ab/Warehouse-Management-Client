@@ -1,64 +1,90 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SocialSignIn from '../SocialSignIn/SocialSignIn';
 
 const SignUp = () => {
+
+    const [error, setError] = useState('');
+
+
+    const handleSignUp = e => {
+        e.preventDefault();
+
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const phone = form.phone.value;
+
+        console.log({ name, email, password, phone });
+
+
+    };
+
+
     return (
         <div className="relative flex flex-col justify-center min-h-screen overflow-hidden" data-theme="aqua">
             <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl lg:max-w-xl">
                 <h1 className="text-3xl font-semibold text-center text-purple-700 uppercase">
                     Please Sign Up
                 </h1>
-                <form className="mt-6">
+                <form className="mt-6" onSubmit={handleSignUp}>
                     <div className="mb-2">
                         <label
-                            for="name"
+                            htmlFor="name"
                             className="block text-sm font-semibold text-gray-800"
                         >
                             Name
                         </label>
                         <input
                             type="name"
-                            placeHolder='Enter Your Name'
+                            name='name'
+                            placeholder='Enter Your Name'
                             className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
                     </div>
                     <div className="mb-2">
                         <label
-                            for="email"
+                            htmlFor="email"
                             className="block text-sm font-semibold text-gray-800"
                         >
                             Email
                         </label>
                         <input
                             type="email"
-                            placeHolder='Enter Your Email'
+                            name='email'
+                            placeholder='Enter Your Email'
                             className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
                     </div>
                     <div className="mb-2">
                         <label
-                            for="password"
+                            htmlFor="password"
                             className="block text-sm font-semibold text-gray-800"
                         >
                             Password
                         </label>
                         <input
                             type="password"
-                            placeHolder='Enter Password'
+                            name='password'
+                            placeholder='Enter Password'
                             className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
                     </div>
+                    {
+                        error && <div className='text-red-500'>({error.split('/')[1]}</div>
+                    }
                     <div className="mb-2">
                         <label
-                            for="number"
+                            htmlFor="number"
                             className="block text-sm font-semibold text-gray-800"
                         >
                             Phone Number
                         </label>
                         <input
                             type="number"
-                            placeHolder='Enter Your Phone Number'
+                            name='phone'
+                            placeholder='Enter Your Phone Number'
                             className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
                     </div>
