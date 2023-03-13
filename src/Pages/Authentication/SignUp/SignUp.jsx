@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/UserContext/UserContext';
 import SocialSignIn from '../SocialSignIn/SocialSignIn';
 
 const SignUp = () => {
+    const {createUser} = useContext(AuthContext)
 
     const [error, setError] = useState('');
 
@@ -18,7 +20,7 @@ const SignUp = () => {
 
         console.log({ name, email, password, phone });
 
-
+        createUser(email, password)
     };
 
 
