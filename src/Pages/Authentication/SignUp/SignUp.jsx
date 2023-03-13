@@ -2,9 +2,12 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/UserContext/UserContext';
 import SocialSignIn from '../SocialSignIn/SocialSignIn';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import app from '../../../firebase/firebase.config';
 
 const SignUp = () => {
-    const {createUser} = useContext(AuthContext)
+    const {createUser} = useContext(AuthContext);
+    // const auth = getAuth(app);
 
     const [error, setError] = useState('');
 
@@ -21,6 +24,13 @@ const SignUp = () => {
         console.log({ name, email, password, phone });
 
         createUser(email, password)
+        // createUserWithEmailAndPassword(auth, email, password)
+        .then(res =>{
+            console.log(res.user);
+        })
+        .catch(err =>{
+            console.log(err.message);
+        })
     };
 
 
