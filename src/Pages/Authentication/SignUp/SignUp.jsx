@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../../Context/UserContext/UserContext';
 import SocialSignIn from '../SocialSignIn/SocialSignIn';
 
 const SignUp = () => {
     const { createUser, addUserName } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const [error, setError] = useState('');
 
@@ -22,11 +24,13 @@ const SignUp = () => {
 
         createUser(email, password)
             .then(res => {
-                console.log(res.user);
+                // console.log(res.user);
                 addUserName(name)
                     .then(() => {
-                        
+                        toast("Check your email and verify it.")
                     })
+
+                navigate('/')
             })
             .catch(err => {
                 setError(err.message);

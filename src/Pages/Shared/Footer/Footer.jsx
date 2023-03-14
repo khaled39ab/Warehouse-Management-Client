@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import logo from '../../../asset/icons/car-care-logo.png';
 
 const Footer = () => {
     return (
         <footer className="footer p-10 bg-base-200 text-base-content" data-theme="night">
+            <ToastContainer />
             <div>
                 <img src={logo} alt="logo" />
                 <p>Automotive Car Care Ltd.<br />Providing reliable tech since 1992</p>
