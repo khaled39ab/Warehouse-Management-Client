@@ -114,7 +114,9 @@ const SignUp = () => {
                         </button>
                     </div>
                 </form>
+
                 <SocialSignIn />
+                
                 <p className="mt-8 text-xs font-semibold text-center text-gray-700">
                     {" "}
                     Already have an account?{" "}
