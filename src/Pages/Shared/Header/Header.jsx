@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../asset/icons/car-care-logo.png';
+import { AuthContext } from '../../../Context/UserContext/UserContext';
 
 const Header = () => {
+
+    const { user } = useContext(AuthContext);
+
+    if(user){
+        console.log(user);
+    }
+
     return (
         <div className="navbar bg-base-200" data-theme="aqua">
             <div className="navbar-start">

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { createContext } from "react";
-import { createUserWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, TwitterAuthProvider, updateProfile } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
 
 export const AuthContext = createContext();
@@ -9,6 +9,9 @@ export const AuthContext = createContext();
 const UserContext = ({ children }) => {
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
+    const twitterProvider = new TwitterAuthProvider();
+
+    const [user, setUser] = useState(null);
 
 
     const createUser = (email, password) => {
@@ -42,7 +45,19 @@ const UserContext = ({ children }) => {
         return signInWithPopup(auth, githubProvider);
     };
 
+    const twitterAuth = () => {
+        return signInWithPopup(auth, twitterProvider);
+    };
 
+
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        })
+
+        return () => unsubscribe();
+    }, []);
 
 
     const AuthInfo = {
@@ -52,7 +67,8 @@ const UserContext = ({ children }) => {
         googleAuth,
         githubAuth,
         verifyEmail,
-
+        twitterAuth,
+        user
     };
 
     return (
