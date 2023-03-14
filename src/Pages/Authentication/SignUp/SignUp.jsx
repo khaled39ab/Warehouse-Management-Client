@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../Context/UserContext/UserContext';
 import SocialSignIn from '../SocialSignIn/SocialSignIn';
@@ -20,7 +20,7 @@ const SignUp = () => {
         const password = form.password.value;
         const phone = form.phone.value;
 
-        // console.log({ name, email, password, phone });
+        console.log({ phone });
 
         createUser(email, password)
             .then(res => {
@@ -55,6 +55,7 @@ const SignUp = () => {
                         <input
                             type="name"
                             name='name'
+                            required
                             placeholder='Enter Your Name'
                             className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
@@ -69,6 +70,7 @@ const SignUp = () => {
                         <input
                             type="email"
                             name='email'
+                            required
                             placeholder='Enter Your Email'
                             className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
@@ -83,6 +85,7 @@ const SignUp = () => {
                         <input
                             type="password"
                             name='password'
+                            required
                             placeholder='Enter Password'
                             className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
@@ -100,12 +103,13 @@ const SignUp = () => {
                         <input
                             type="number"
                             name='phone'
+                            required
                             placeholder='Enter Your Phone Number'
                             className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
                     </div>
                     <div className="mt-6">
-                        <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
+                        <button type='submit' className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
                             Sign Up
                         </button>
                     </div>
