@@ -5,7 +5,7 @@ import { AuthContext } from '../../../Context/UserContext/UserContext';
 import SocialSignIn from '../SocialSignIn/SocialSignIn';
 
 const SignUp = () => {
-    const { createUser, addUserName } = useContext(AuthContext);
+    const { createUser, addUserName, verifyEmail } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const [error, setError] = useState('');
@@ -20,13 +20,12 @@ const SignUp = () => {
         const password = form.password.value;
         const phone = form.phone.value;
 
-        console.log({ phone });
-
         createUser(email, password)
             .then(res => {
                 // console.log(res.user);
-                addUserName(name)
+                addUserName(name, phone)
                     .then(() => {
+                        verifyEmail()
                         toast("Check your email and verify it.")
                     })
 
@@ -116,7 +115,7 @@ const SignUp = () => {
                 </form>
 
                 <SocialSignIn />
-                
+
                 <p className="mt-8 text-xs font-semibold text-center text-gray-700">
                     {" "}
                     Already have an account?{" "}
