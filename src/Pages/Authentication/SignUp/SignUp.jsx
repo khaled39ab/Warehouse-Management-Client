@@ -4,7 +4,7 @@ import { AuthContext } from '../../../Context/UserContext/UserContext';
 import SocialSignIn from '../SocialSignIn/SocialSignIn';
 
 const SignUp = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, addUserName } = useContext(AuthContext);
 
     const [error, setError] = useState('');
 
@@ -18,11 +18,15 @@ const SignUp = () => {
         const password = form.password.value;
         const phone = form.phone.value;
 
-        console.log({ name, email, password, phone });
+        // console.log({ name, email, password, phone });
 
         createUser(email, password)
             .then(res => {
                 console.log(res.user);
+                addUserName(name)
+                    .then(() => {
+                        
+                    })
             })
             .catch(err => {
                 setError(err.message);
