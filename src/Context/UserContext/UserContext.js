@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { createContext } from "react";
-import { createUserWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, TwitterAuthProvider, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, TwitterAuthProvider, updateProfile } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
 
 export const AuthContext = createContext();
@@ -45,13 +45,20 @@ const UserContext = ({ children }) => {
         return signInWithPopup(auth, githubProvider);
     };
 
+
     const twitterAuth = () => {
         return signInWithPopup(auth, twitterProvider);
     };
 
+
+    const passwordReset = (email) =>{
+        return sendPasswordResetEmail(auth, email);
+    };
+
+
     const logOut = () => {
         return signOut(auth)
-    }
+    };
 
 
 
@@ -72,6 +79,7 @@ const UserContext = ({ children }) => {
         githubAuth,
         verifyEmail,
         twitterAuth,
+        passwordReset,
         logOut,
         user
     };

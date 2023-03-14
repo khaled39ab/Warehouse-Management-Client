@@ -1,13 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../../Context/UserContext/UserContext';
 import SocialSignIn from '../SocialSignIn/SocialSignIn';
 
 const SignIn = () => {
-    const { passwordLogin } = useContext(AuthContext);
+    const { passwordLogin, passwordReset } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const [error, setError] = useState('')
+    const [error, setError] = useState('');
+    const [emailId, setEmailId] = useState('');
 
     const handleSignIn = e => {
         e.preventDefault();
@@ -23,7 +25,16 @@ const SignIn = () => {
                 navigate('/')
             })
             .catch(err => setError(err.message))
-    }
+    };
+
+    const handlePasswordReset = () => {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailId)) {
+            passwordReset(emailId);
+            toast("Password Reset successfully. Check Your Email.");
+        }
+    };
+
+
     return (
         <div className="relative flex flex-col justify-center min-h-screen overflow-hidden" data-theme="aqua">
             <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl lg:max-w-xl">
@@ -42,6 +53,7 @@ const SignIn = () => {
                             type="email"
                             name='email'
                             required
+                            onBlur={e => setEmailId(e.target.value)}
                             className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
                     </div>
@@ -64,9 +76,12 @@ const SignIn = () => {
                         error && <div className='text-red-500'>({error.split('/')[1]}</div>
                     }
 
-                    <Link href="#" className="text-xs text-purple-600 hover:underline" >
+                    <div
+                        onClick={handlePasswordReset}
+                        className="text-xs text-purple-600 cursor-pointer hover:underline" >
                         Forget Password?
-                    </Link>
+                    </div>
+
                     <div className="mt-6">
                         <button type='submit' className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
                             Sign In
@@ -75,7 +90,7 @@ const SignIn = () => {
                 </form>
 
                 <SocialSignIn />
-                
+
                 <p className="mt-8 text-xs font-semibold text-center text-gray-700">
                     {" "}
                     Don't have an account?{" "}
