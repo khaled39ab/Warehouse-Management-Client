@@ -7,7 +7,7 @@ const Company = ({ logo }) => {
             <img src={logo.logo} alt="logo" className="px-3 py-2 w-full" />
             </div>
             <div className="items-center text-center pb-1">
-                <h2 >{logo.name}</h2>
+                <h2 className='tracking-wider'>{logo.name}</h2>
             </div>
         </div>
     );

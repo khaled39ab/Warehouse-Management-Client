@@ -70,7 +70,7 @@ const Header = () => {
                             </label>
                             <ul tabIndex={0} className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-1 font-bold">
                                 <li><Link to={'/manage-items'}>Manage Items</Link></li>
-                                <li><Link to={'/add-items'}>Add Items</Link></li>
+                                <li><Link to={'/add-item'}>Add Item</Link></li>
                                 <li><Link to={'/my-items'}>My Items</Link></li>
                                 <li><button onClick={handleSignOut} className="btn  btn-secondary">Log Out</button></li>
                             </ul>

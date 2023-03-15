@@ -7,6 +7,7 @@ import NotFound from "../../Pages/NotFound/NotFound";
 import About from "../../Pages/About Us/About";
 import Blogs from "../../Pages/Blogs/Blogs";
 import Store from "../../Store Items/Store";
+import AddItem from "../../Pages/Features For User/Add Item/AddItem";
 
 export const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
             {
                 path: '/store',
                 element: <Store />
+            },
+            {
+                path: '/add-item',
+                element: <AddItem />
             },
             {
                 path: '*',
