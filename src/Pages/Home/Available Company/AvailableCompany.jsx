@@ -6,7 +6,7 @@ import mitsubishi from '../../../asset/images/Company/mitsubishi.png';
 import mercedesBenz from '../../../asset/images/Company/mercedes-benz.png';
 import nissan from '../../../asset/images/Company/nissan.png';
 import landRover from '../../../asset/images/Company/land-rover.png';
-import kia from '../../../asset/images/Company/kia.png';
+import kia from '../../../asset/images/Company/kia.jpg';
 import Company from './Company';
 
 const AvailableCompany = () => {
@@ -54,13 +54,16 @@ const AvailableCompany = () => {
     ]
 
     return (
-        <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2 my-5 mx-5'>
-            {
-                companyLogo.map(logo => <Company
-                    key={logo.id}
-                    logo={logo}
-                ></Company>)
-            }
+        <div className='my-10 mx-8 p-5 rounded-lg' data-theme="autumn">
+            <h1 className='text-4xl font-bold mb-10 text-center'>Choose Your <span className='text-rose-400'>Dream </span></h1>
+            <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2 mb-5'>
+                {
+                    companyLogo.map(logo => <Company
+                        key={logo.id}
+                        logo={logo}
+                    ></Company>)
+                }
+            </div>
         </div>
     );
 };
