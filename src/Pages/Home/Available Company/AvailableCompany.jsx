@@ -13,41 +13,48 @@ const AvailableCompany = () => {
     const companyLogo = [
         {
             id: 1,
-            logo: honda
+            logo: honda,
+            name: "Honda"
         },
         {
             id: 2,
-            logo: hyundai
+            logo: hyundai,
+            name: "Hyundai"
         },
         {
             id: 3,
-            logo: toyota
+            logo: toyota,
+            name: "Toyota"
         },
         {
             id: 4,
-            logo: mercedesBenz
+            logo: mercedesBenz,
+            name: "Mercedes Benz"
         },
         {
             id: 5,
-            logo: mitsubishi
+            logo: mitsubishi,
+            name: "Mitsubishi"
         },
         {
             id: 6,
-            logo: landRover
+            logo: landRover,
+            name: "Land Rover"
         },
         {
             id: 7,
-            logo: nissan
+            logo: nissan,
+            name: "Nissan"
         },
         {
             id: 8,
-            logo: kia
+            logo: kia,
+            name: "Kia"
         },
     ]
 
-
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-5 mx-auto'>
+        <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2 my-5 mx-5'>
             {
                 companyLogo.map(logo => <Company
                     key={logo.id}

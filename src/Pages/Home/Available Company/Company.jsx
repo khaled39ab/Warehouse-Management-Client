@@ -2,14 +2,12 @@ import React from 'react';
 
 const Company = ({ logo }) => {
     return (
-        <div className="card w-96 bg-base-100 shadow-xl image-full">
-            <figure><img src={logo.logo} alt="Shoes" /></figure>
-            <div className="card-body">
-                <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
-                </div>
+        <div className="card w-36 bg-base-200">
+            <div className='w-full'>
+            <img src={logo.logo} alt="logo" className="px-3 py-2 w-full" />
+            </div>
+            <div className="items-center text-center pb-1">
+                <h2 >{logo.name}</h2>
             </div>
         </div>
     );
