@@ -2,9 +2,8 @@ import React from 'react';
 import useFetch from '../../../../hooks/useFetch/useFetch';
 
 const Items = () => {
-    const {data} = useFetch('https://jsonplaceholder.typicode.com/users');
-    console.log(data);
-
+    const {dataList} = useFetch('https://jsonplaceholder.typicode.com/users', 6);
+    console.log(dataList);
     
     return (
         <div>

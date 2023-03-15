@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const useFetch = (url) => {
+const useFetch = (url, limit) => {
 
     const [data, setData] = useState([]);
 
@@ -10,7 +10,9 @@ const useFetch = (url) => {
             .then(data => setData(data))
     }, [url])
 
-    return {data};
+    const dataList = data.slice(0,limit)
+
+    return { dataList };
 };
 
 export default useFetch;
