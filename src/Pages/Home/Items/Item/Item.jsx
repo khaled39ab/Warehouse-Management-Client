@@ -16,7 +16,7 @@ const Item = ({ item }) => {
 
                 <div className="card-actions justify-between">
                     <h2 className="card-title text-purple-500 mt-3"><span className='font-extrabold'>৳ </span>{car_price}</h2>
-                    <Link to={`/update/${_id}`} className="btn btn-primary">Update</Link>
+                    <Link to={`/updateItem/${_id}`} className="btn btn-primary">Update</Link>
                 </div>
             </div>
         </div>
