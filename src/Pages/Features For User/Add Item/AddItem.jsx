@@ -18,12 +18,21 @@ const AddItem = () => {
         e.preventDefault();
 
         const itemDetails = {
-            ...itemInfo, 
+            ...itemInfo,
             provider_name: user.displayName,
             provider_email: user.email
         };
 
-       
+        fetch('http://localhost:4000/items', {
+            method: 'POST',
+            headers: {
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify(itemDetails)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
     }
 
     return (
@@ -52,6 +61,8 @@ const AddItem = () => {
                     <input type="number" name='quantity' placeholder="Car Quantity" className="input input-bordered w-full" required onChange={getItemInfo} />
 
                 </div>
+
+                <textarea name='description' placeholder="Description" className="textarea textarea-bordered textarea-lg w-full mt-5" required onChange={getItemInfo}></textarea>
 
                 <button type='submit' className="btn btn-block mt-7 tracking-wide bg-rose-500 font-bold hover:bg-rose-700">Add Item</button>
             </form>
