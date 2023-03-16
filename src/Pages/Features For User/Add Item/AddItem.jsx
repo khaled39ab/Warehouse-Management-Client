@@ -1,34 +1,55 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../Context/UserContext/UserContext';
 
 const AddItem = () => {
 
     const { user } = useContext(AuthContext);
 
+    const [itemInfo, setItemInfo] = useState({})
+
+    const getItemInfo = e => {
+        setItemInfo({
+            ...itemInfo,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const handleAddItem = e => {
+        e.preventDefault();
+
+        const itemDetails = {
+            ...itemInfo, 
+            provider_name: user.displayName,
+            provider_email: user.email
+        };
+
+       
+    }
+
     return (
         <div className='m-10 rounded-3xl' data-theme="autumn">
-            <form className='bg-slate-400 py-14 px-10'>
+            <form onSubmit={handleAddItem} className='bg-slate-400 py-14 px-10'>
                 <div className='grid sm:grid-cols-1 md:grid-cols-2 gap-5 rounded-md'>
 
-                    <input defaultValue={user?.displayName} type="text" placeholder="Your Name" className="input input-bordered w-full" readOnly />
+                    <input defaultValue={user?.displayName} name='provider_name' type="text" placeholder="Your Name" className="input input-bordered w-full" readOnly onChange={getItemInfo} />
 
-                    <input defaultValue={user?.email} type="text" placeholder="Your Email" className="input input-bordered w-full" readOnly />
+                    <input defaultValue={user?.email} name='provider_email' type="text" placeholder="Your Email" className="input input-bordered w-full" readOnly onChange={getItemInfo} />
 
-                    <input type="text" placeholder="Car Company Name" className="input input-bordered w-full" required />
+                    <input type="text" name='company_name' placeholder="Car Company Name" className="input input-bordered w-full" required onChange={getItemInfo} />
 
-                    <input type="text" placeholder="Car Model" className="input input-bordered w-full" required />
+                    <input type="text" name='car_model' placeholder="Car Model" className="input input-bordered w-full" required onChange={getItemInfo} />
 
-                    <input type="text" placeholder="Car Color" className="input input-bordered w-full" required />
+                    <input type="text" name='car_color' placeholder="Car Color" className="input input-bordered w-full" required onChange={getItemInfo} />
 
-                    <input type="text" placeholder="Car Model Year" className="input input-bordered w-full" required />
+                    <input type="text" name='model_year' placeholder="Car Model Year" className="input input-bordered w-full" required onChange={getItemInfo} />
 
-                    <input type="text" placeholder="Car Vehicle Identification Number (VIN)" className="input input-bordered w-full" required />
+                    <input type="text" name='car_vin' placeholder="Car Vehicle Identification Number (VIN)" className="input input-bordered w-full" required onChange={getItemInfo} />
 
-                    <input type="text" placeholder="Car Price" className="input input-bordered w-full" required />
+                    <input type="text" name='car_price' placeholder="Car Price" className="input input-bordered w-full" required onChange={getItemInfo} />
 
-                    <input type="text" placeholder="Car Photo URL" className="input input-bordered w-full" required />
+                    <input type="text" name='photo_url' placeholder="Car Photo URL" className="input input-bordered w-full" required onChange={getItemInfo} />
 
-                    <input type="number" placeholder="Car Quantity" className="input input-bordered w-full" required />
+                    <input type="number" name='quantity' placeholder="Car Quantity" className="input input-bordered w-full" required onChange={getItemInfo} />
 
                 </div>
 
