@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Item = ({ item }) => {
-    const { company_name, car_model, model_year, car_price, provider_name, provider_email, photo_url, description } = item;
+    const { _id, company_name, car_model, model_year, car_price, provider_name, provider_email, photo_url, description } = item;
 
-    // console.log(item);
+
     return (
         <div className="card w-60 md:w-72 lg:w-96 bg-base-100 shadow-xl">
             <figure><img className='h-52 w-full' src={photo_url} alt="Car" /></figure>
@@ -15,7 +16,7 @@ const Item = ({ item }) => {
 
                 <div className="card-actions justify-between">
                     <h2 className="card-title text-purple-500 mt-3"><span className='font-extrabold'>৳ </span>{car_price}</h2>
-                    <button className="btn btn-primary">Update</button>
+                    <Link to={`/update/${_id}`} className="btn btn-primary">Update</Link>
                 </div>
             </div>
         </div>

@@ -4,7 +4,6 @@ import Item from '../Item/Item';
 
 const Items = () => {
     const { data } = useFetch('http://localhost:4000/items');
-    // console.log(data);
 
     return (
         <div className='my-10 mx-8 p-5 rounded-lg' data-theme="autumn">

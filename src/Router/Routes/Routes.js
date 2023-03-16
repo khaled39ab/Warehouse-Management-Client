@@ -8,6 +8,7 @@ import About from "../../Pages/About Us/About";
 import Blogs from "../../Pages/Blogs/Blogs";
 import Store from "../../Store Items/Store";
 import AddItem from "../../Pages/Features For User/Add Item/AddItem";
+import UpdateItem from "../../Pages/Features For User/Update An item/UpdateItem";
 
 export const router = createBrowserRouter([
     {
@@ -41,6 +42,11 @@ export const router = createBrowserRouter([
             {
                 path: '/add-item',
                 element: <AddItem />
+            },
+            {
+                path: '/updateItem/:id',
+                element: <UpdateItem />,
+                loader: ({params}) => fetch(`http://localhost:4000/updateItem/${params.id}`)
             },
             {
                 path: '*',
