@@ -1,18 +1,21 @@
 import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../../Context/UserContext/UserContext';
 
 const AddItem = () => {
 
     const { user } = useContext(AuthContext);
 
-    const [itemInfo, setItemInfo] = useState({})
+    const [itemInfo, setItemInfo] = useState({});
+    const navigate = useNavigate();
 
     const getItemInfo = e => {
         setItemInfo({
             ...itemInfo,
             [e.target.name]: e.target.value
         })
-    }
+    };
 
     const handleAddItem = e => {
         e.preventDefault();
@@ -31,7 +34,12 @@ const AddItem = () => {
             body: JSON.stringify(itemDetails)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if(data.acknowledged){
+                    toast("Successfully Added Your Item");
+                    navigate('/');
+                }
+            })
             .catch(err => console.log(err))
     }
 
