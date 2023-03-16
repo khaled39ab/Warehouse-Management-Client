@@ -6,9 +6,9 @@ const AddItem = () => {
     const { user } = useContext(AuthContext);
 
     return (
-        <div className='m-10'>
-            <form onSubmit={''} className='bg-indigo-300 py-14 px-10 rounded-md'>
-                <div className='grid sm:grid-cols-1 md:grid-cols-2 gap-5 '>
+        <div className='m-10 rounded-3xl' data-theme="autumn">
+            <form className='bg-slate-400 py-14 px-10'>
+                <div className='grid sm:grid-cols-1 md:grid-cols-2 gap-5 rounded-md'>
 
                     <input defaultValue={user?.displayName} type="text" placeholder="Your Name" className="input input-bordered w-full" readOnly />
 
@@ -32,7 +32,7 @@ const AddItem = () => {
 
                 </div>
 
-                <button type='submit' className="btn btn-block mt-7 tracking-wide bg-rose-500 font-bold">Add Item</button>
+                <button type='submit' className="btn btn-block mt-7 tracking-wide bg-rose-500 font-bold hover:bg-rose-700">Add Item</button>
             </form>
         </div>
     );
