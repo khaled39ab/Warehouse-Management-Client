@@ -4,10 +4,12 @@ import { AuthContext } from '../../../Context/UserContext/UserContext';
 
 const UpdateItem = () => {
     const { user } = useContext(AuthContext);
-    const [updateInfo, setUpdateInfo] = useState({});
-    const item = useLoaderData();
 
+    const item = useLoaderData();
+    
     const { _id, company_name, car_model, car_color, model_year, car_price, quantity, photo_url, car_vin, description } = item;
+
+    const [updateInfo, setUpdateInfo] = useState(item);
 
     const getUpdateInfo = e => {
         setUpdateInfo({
@@ -24,8 +26,9 @@ const UpdateItem = () => {
             provider_name: user.displayName,
             provider_email: user.email
         };
+        console.log(updateInfo);
 
-        fetch(`http://localhost:4000/updateItem/${_id}`, {
+        fetch(`http://localhost:4000/item/${_id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -34,6 +37,7 @@ const UpdateItem = () => {
         })
             .then(res => res.json())
             .then(data => console.log(data))
+            .catch(err => console.error(err))
     }
 
 
