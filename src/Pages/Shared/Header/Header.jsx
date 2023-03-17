@@ -59,7 +59,7 @@ const Header = () => {
                     <li><Link to={'/about'}>About Us</Link></li>
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end sm:w-1/2 md:w-full">
                 {
                     user ?
                         <div className="dropdown dropdown-bottom dropdown-end">

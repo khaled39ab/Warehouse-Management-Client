@@ -16,11 +16,31 @@ const UpdateItem = () => {
         })
     };
 
+    const handleUpdate = e => {
+        e.preventDefault();
+
+        const itemDetails = {
+            ...updateInfo,
+            provider_name: user.displayName,
+            provider_email: user.email
+        };
+
+        fetch(`http://localhost:4000/updateItem/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(itemDetails)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }
+
 
     return (
         <div className='bg-slate-400 m-8' data-theme="autumn">
             <h1 className='text-center text-4xl text-yellow-300 pt-10 font-bold'>Update For ID:{_id}</h1>
-            <form className=' py-14 px-10'>
+            <form onSubmit={handleUpdate} className=' py-14 px-10'>
                 <div className='grid sm:grid-cols-1 md:grid-cols-2 gap-5 rounded-md'>
 
                     <input defaultValue={user?.displayName} name='provider_name' type="text" placeholder="Your Name" className="input input-bordered w-full" readOnly onChange={getUpdateInfo} />
