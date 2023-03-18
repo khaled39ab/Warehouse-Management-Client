@@ -55,6 +55,10 @@ export const router = createBrowserRouter([
                 loader: ({params}) => fetch(`http://localhost:4000/item/${params.id}`)
             },
             {
+                path: '/delivered/:id',
+                loader: ({params}) => fetch(`http://localhost:4000/delivered/${params.id}`)
+            },
+            {
                 path: '*',
                 element: <NotFound />
             }

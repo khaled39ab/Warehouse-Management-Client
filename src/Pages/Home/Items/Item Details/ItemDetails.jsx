@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const ItemDetails = () => {
     const item = useLoaderData();
 
     const { _id, company_name, car_model, car_color, model_year, car_price, quantity, provider_name, provider_email, photo_url, car_vin, description } = item;
-    console.log(item);
+
+    const [empty, setEmpty] = useState(true);
+
+    if (quantity < 1) {
+        setEmpty(false)
+    }
+
+    const handleDelivered = () => {
+        const delivered = { quantity: quantity - 1 };
+
+        fetch(`http://localhost:4000/delivered/${_id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(delivered)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+    }
 
     return (
         <div className='m-20 rounded-2xl' data-theme="cupcake">
@@ -16,7 +38,7 @@ const ItemDetails = () => {
                 <div className="card-body">
                     <h2 className="card-title font-bold md:text-xl sm:text-lg lg:font-extrabold lg:text-3xl text-purple-600 uppercase">{`${company_name} ${car_model} ${model_year}`}</h2>
 
-                    <div className='card-actions justify-start text-orange-400 md:font-semibold lg:font-bold md:text-lg uppercase'>
+                    <div className='flex justify-start text-orange-400 md:font-semibold lg:font-bold md:text-lg uppercase'>
                         <h3 className="lg:mr-5">Version: {model_year}</h3>
                         <h3 className="lg:ms-5"> COLOR: {car_color}</h3>
                     </div>
@@ -32,7 +54,11 @@ const ItemDetails = () => {
                     </div>
                     <div className='md:font-semibold lg:font-bold lg:text-xl border-2 text-center border-teal-600 flex justify-evenly py-2 bg-white'>
                         <h3 className='text-rose-600 '>Available: {quantity}</h3>
-                        <button className="btn btn-sm btn-outline btn-success">Delivered</button>
+                        {
+                            empty ?
+                                <button onClick={handleDelivered} className="btn btn-sm btn-outline btn-success">Delivered</button> :
+                                <button className="btn btn-sm btn-disabled" >Stock Out</button>
+                        }
                     </div>
 
                     <div className="card-actions justify-between">
