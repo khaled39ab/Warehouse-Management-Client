@@ -6,7 +6,7 @@ const UpdateItem = () => {
     const { user } = useContext(AuthContext);
 
     const item = useLoaderData();
-    
+
     const { _id, company_name, car_model, car_color, model_year, car_price, quantity, photo_url, car_vin, description } = item;
 
     const [updateInfo, setUpdateInfo] = useState(item);
@@ -21,19 +21,12 @@ const UpdateItem = () => {
     const handleUpdate = e => {
         e.preventDefault();
 
-        const itemDetails = {
-            ...updateInfo,
-            provider_name: user.displayName,
-            provider_email: user.email
-        };
-        console.log(updateInfo);
-
         fetch(`http://localhost:4000/item/${_id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(itemDetails)
+            body: JSON.stringify(updateInfo)
         })
             .then(res => res.json())
             .then(data => console.log(data))
