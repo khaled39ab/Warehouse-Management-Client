@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../../Context/UserContext/UserContext';
 
 const UpdateItem = () => {
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const item = useLoaderData();
 
@@ -29,9 +31,14 @@ const UpdateItem = () => {
             body: JSON.stringify(updateInfo)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if (data.modifiedCount === 1) {
+                    toast("Successfully Updated Item");
+                    navigate('/');
+                }
+            })
             .catch(err => console.error(err))
-    }
+    };
 
 
     return (
