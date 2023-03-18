@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const ItemDetails = () => {
@@ -7,11 +7,12 @@ const ItemDetails = () => {
 
     const { _id, company_name, car_model, car_color, model_year, car_price, quantity, provider_name, provider_email, photo_url, car_vin, description } = item;
 
-    const [empty, setEmpty] = useState(true);
+    // const [emptyStock, setEmptyStock] = useState(false);
+    const navigate = useNavigate()
 
-    if (quantity < 1) {
-        setEmpty(false)
-    }
+    // if (quantity === 0) {
+    //     setEmptyStock(true)
+    // }
 
     const handleDelivered = () => {
         const delivered = { quantity: quantity - 1 };
@@ -25,8 +26,12 @@ const ItemDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                if (data.modifiedCount > 0) {
+                    toast(`Successfully Delivered ${company_name} ${car_model} ${model_year}`);
+                    navigate('/');
+                }
             })
+            .catch(err => console.log(err))
     }
 
     return (
@@ -55,7 +60,7 @@ const ItemDetails = () => {
                     <div className='md:font-semibold lg:font-bold lg:text-xl border-2 text-center border-teal-600 flex justify-evenly py-2 bg-white'>
                         <h3 className='text-rose-600 '>Available: {quantity}</h3>
                         {
-                            empty ?
+                            quantity > 0 ?
                                 <button onClick={handleDelivered} className="btn btn-sm btn-outline btn-success">Delivered</button> :
                                 <button className="btn btn-sm btn-disabled" >Stock Out</button>
                         }
