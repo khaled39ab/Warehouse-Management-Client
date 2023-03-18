@@ -9,6 +9,7 @@ import Blogs from "../../Pages/Blogs/Blogs";
 import Store from "../../Store Items/Store";
 import AddItem from "../../Pages/Features For User/Add Item/AddItem";
 import UpdateItem from "../../Pages/Features For User/Update An item/UpdateItem";
+import ItemDetails from "../../Pages/Home/Items/Item Details/ItemDetails";
 
 export const router = createBrowserRouter([
     {
@@ -46,6 +47,11 @@ export const router = createBrowserRouter([
             {
                 path: '/item/:id',
                 element: <UpdateItem />,
+                loader: ({params}) => fetch(`http://localhost:4000/item/${params.id}`)
+            },
+            {
+                path: '/itemDetails/:id',
+                element: <ItemDetails />,
                 loader: ({params}) => fetch(`http://localhost:4000/item/${params.id}`)
             },
             {

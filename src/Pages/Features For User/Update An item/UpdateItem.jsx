@@ -32,7 +32,7 @@ const UpdateItem = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data.modifiedCount === 1) {
+                if (data.modifiedCount > 0) {
                     toast("Successfully Updated Item");
                     navigate('/');
                 }
