@@ -10,6 +10,7 @@ import Store from "../../Store Items/Store";
 import AddItem from "../../Pages/Features For User/Add Item/AddItem";
 import UpdateItem from "../../Pages/Features For User/Update An item/UpdateItem";
 import ItemDetails from "../../Pages/Home/Items/Item Details/ItemDetails";
+import RequireAuth from "../RequireAuth/RequireAuth";
 
 export const router = createBrowserRouter([
     {
@@ -42,21 +43,21 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/add-item',
-                element: <AddItem />
+                element: <RequireAuth><AddItem /></RequireAuth>
             },
             {
                 path: '/item/:id',
-                element: <UpdateItem />,
-                loader: ({params}) => fetch(`http://localhost:4000/item/${params.id}`)
+                element: <RequireAuth><UpdateItem /></RequireAuth>,
+                loader: ({ params }) => fetch(`http://localhost:4000/item/${params.id}`)
             },
             {
                 path: '/itemDetails/:id',
-                element: <ItemDetails />,
-                loader: ({params}) => fetch(`http://localhost:4000/item/${params.id}`)
+                element: <RequireAuth><ItemDetails /></RequireAuth>,
+                loader: ({ params }) => fetch(`http://localhost:4000/item/${params.id}`)
             },
             {
                 path: '/delivered/:id',
-                loader: ({params}) => fetch(`http://localhost:4000/delivered/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:4000/delivered/${params.id}`)
             },
             {
                 path: '*',

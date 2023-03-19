@@ -12,9 +12,11 @@ const UserContext = ({ children }) => {
     const twitterProvider = new TwitterAuthProvider();
 
     const [user, setUser] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
 
     const createUser = (email, password) => {
+        setIsLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
     };
 
@@ -32,21 +34,25 @@ const UserContext = ({ children }) => {
 
 
     const passwordLogin = (email, password) => {
+        setIsLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     };
 
 
     const googleAuth = () => {
+        setIsLoading(true);
         return signInWithPopup(auth, googleProvider);
     };
 
 
     const githubAuth = () => {
+        setIsLoading(true);
         return signInWithPopup(auth, githubProvider);
     };
 
 
     const twitterAuth = () => {
+        setIsLoading(true);
         return signInWithPopup(auth, twitterProvider);
     };
 
@@ -64,6 +70,7 @@ const UserContext = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setIsLoading(false);
             setUser(currentUser);
         })
 
@@ -81,7 +88,8 @@ const UserContext = ({ children }) => {
         twitterAuth,
         passwordReset,
         logOut,
-        user
+        user,
+        isLoading
     };
 
     return (
