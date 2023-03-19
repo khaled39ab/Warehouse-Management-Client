@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../Context/UserContext/UserContext';
 
@@ -8,6 +8,7 @@ const AddItem = () => {
     const { user } = useContext(AuthContext);
 
     const [itemInfo, setItemInfo] = useState({});
+    
     const navigate = useNavigate();
 
     const getItemInfo = e => {

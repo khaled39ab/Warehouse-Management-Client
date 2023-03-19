@@ -9,6 +9,7 @@ const Header = () => {
 
     const name = (user?.displayName)?.split(' ')[0];
     const img = user?.photoURL;
+    // console.log(user);
 
     const handleSignOut = () => {
         logOut();

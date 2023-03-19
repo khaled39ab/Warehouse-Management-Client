@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../Context/UserContext/UserContext';
 import SocialSignIn from '../SocialSignIn/SocialSignIn';
@@ -7,6 +7,9 @@ import SocialSignIn from '../SocialSignIn/SocialSignIn';
 const SignIn = () => {
     const { passwordLogin, passwordReset } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
 
     const [error, setError] = useState('');
     const [emailId, setEmailId] = useState('');
@@ -22,7 +25,7 @@ const SignIn = () => {
             .then(res => {
                 const user = res.user;
                 console.log(user);
-                navigate('/')
+                navigate(from, { replace: true })
             })
             .catch(err => setError(err.message))
     };

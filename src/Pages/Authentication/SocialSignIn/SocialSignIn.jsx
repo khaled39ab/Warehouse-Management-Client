@@ -1,17 +1,20 @@
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/UserContext/UserContext';
 
 const SocialSignIn = () => {
     const { googleAuth, githubAuth } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
     const [error, setError] = useState('');
 
     const handleGoogleAuth = () => {
         googleAuth()
             .then(res => {
                 // const user = res.user;
-                navigate('/')
+                navigate(from, { replace: true })
             })
             .catch(err => setError(err.message));
     };
@@ -20,7 +23,7 @@ const SocialSignIn = () => {
         githubAuth()
             .then(res => {
                 // const user = res.user;
-                navigate('/')
+                navigate(from, { replace: true })
             })
             .catch(err => setError(err.message));
     };
@@ -30,6 +33,7 @@ const SocialSignIn = () => {
             .then(res => {
                 const user = res.user;
                 console.log(user);
+                navigate(from, { replace: true })
             })
             .catch(err => setError(err.message));
     };
@@ -71,6 +75,7 @@ const SocialSignIn = () => {
                     </svg>
                 </button>
                 <button
+                    disabled
                     onClick={handleTwitterAuth}
                     type="button"
                     className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600">
