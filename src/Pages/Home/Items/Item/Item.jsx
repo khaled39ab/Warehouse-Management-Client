@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Item = ({ item }) => {
-    const { _id, company_name, car_model, model_year, car_price, provider_name, provider_email, photo_url, description } = item;
+    const { _id, company_name, car_model, model_year, car_price, car_color, photo_url, description } = item;
 
 
     return (
@@ -12,7 +12,10 @@ const Item = ({ item }) => {
                 <h2 className="card-title text-amber-800">{`${company_name} ${car_model} ${model_year}`}</h2>
 
                 <p className='text-justify text-blue-600'>{description}</p>
-                <p className='text-yellow-600'>Provider: {`${provider_name} (${provider_email})`}</p>
+                <div className=' text-orange-400 md:font-semibold lg:font-bold md:text-lg uppercase'>
+                        <h3 className="">Version: {model_year}</h3>
+                        <h3 className=""> COLOR: {car_color}</h3>
+                    </div>
 
                 <div className="card-actions justify-between">
                     <h2 className="card-title text-purple-500 mt-3"><span className='font-extrabold'>৳ </span>{car_price}</h2>
