@@ -12,6 +12,7 @@ import UpdateItem from "../../Pages/Features For User/Update An item/UpdateItem"
 import ItemDetails from "../../Pages/Home/Items/Item Details/ItemDetails";
 import RequireAuth from "../RequireAuth/RequireAuth";
 import MyItems from "../../Pages/Features For User/My Items/MyItems";
+import BrandItems from "../../Pages/BrandItems/BrandItems";
 
 export const router = createBrowserRouter([
     {
@@ -59,6 +60,11 @@ export const router = createBrowserRouter([
             {
                 path: '/my-items',
                 element: <RequireAuth><MyItems /></RequireAuth>
+            },
+            {
+                path: '/brand-items/:brand',
+                element: <RequireAuth><BrandItems /></RequireAuth>,
+                loader: ({ params }) => fetch(`http://localhost:4000/items?company_name=${params.brand}`)
             },
             {
                 path: '/delivered/:id',

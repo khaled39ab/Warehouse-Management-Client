@@ -58,9 +58,9 @@ const AvailableCompany = () => {
             <h1 className='text-4xl font-bold mb-10 text-center'><span className='text-rose-400'>Dream </span> Come From...</h1>
             <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2 mb-5'>
                 {
-                    companyLogo.map(logo => <Company
-                        key={logo.id}
-                        logo={logo}
+                    companyLogo.map(logos => <Company
+                        key={logos.id}
+                        logos={logos}
                     ></Company>)
                 }
             </div>
