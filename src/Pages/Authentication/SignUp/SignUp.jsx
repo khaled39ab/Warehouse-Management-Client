@@ -25,7 +25,7 @@ const SignUp = () => {
 
         createUser(email, password)
             .then(res => {
-                console.log(res.user);
+                // console.log(res.user);
                 addUserName(name, phone)
                     .then(() => {
                         verifyEmail()

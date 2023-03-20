@@ -11,6 +11,7 @@ import AddItem from "../../Pages/Features For User/Add Item/AddItem";
 import UpdateItem from "../../Pages/Features For User/Update An item/UpdateItem";
 import ItemDetails from "../../Pages/Home/Items/Item Details/ItemDetails";
 import RequireAuth from "../RequireAuth/RequireAuth";
+import MyItems from "../../Pages/Features For User/My Items/MyItems";
 
 export const router = createBrowserRouter([
     {
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
                 path: '/itemDetails/:id',
                 element: <RequireAuth><ItemDetails /></RequireAuth>,
                 loader: ({ params }) => fetch(`http://localhost:4000/item/${params.id}`)
+            },
+            {
+                path: '/my-items',
+                element: <RequireAuth><MyItems /></RequireAuth>
             },
             {
                 path: '/delivered/:id',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -7,12 +7,8 @@ const ItemDetails = () => {
 
     const { _id, company_name, car_model, car_color, model_year, car_price, quantity, provider_name, provider_email, photo_url, car_vin, description } = item;
 
-    // const [emptyStock, setEmptyStock] = useState(false);
     const navigate = useNavigate()
 
-    // if (quantity === 0) {
-    //     setEmptyStock(true)
-    // }
 
     const handleDelivered = () => {
         const delivered = { quantity: quantity - 1 };
