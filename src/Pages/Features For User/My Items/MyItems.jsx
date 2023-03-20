@@ -32,7 +32,7 @@ const MyItems = () => {
                             <th className='text-lg font-bold'>Name & Model</th>
                             <th className='text-lg font-bold'>Provider</th>
                             <th className='text-lg font-bold'>Color</th>
-                            <th className='text-lg font-bold'>Price</th>
+                            <th className='text-lg font-bold'>Price (<span className='font-extrabold text-xl'>৳</span>)</th>
                             <th className='text-lg font-bold'>Quantity</th>
                         </tr>
                     </thead>

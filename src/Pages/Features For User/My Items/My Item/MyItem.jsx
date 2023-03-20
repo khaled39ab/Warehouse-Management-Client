@@ -6,7 +6,7 @@ const MyItem = ({list}) => {
 
 
     return (
-        <tr>
+        <tr className="hover">
             <th>
                 <label>
                     <button className="btn btn-circle btn-outline">
@@ -17,7 +17,7 @@ const MyItem = ({list}) => {
             <td>
                 <div className="flex items-center space-x-3">
                     <div className="avatar">
-                        <div className="rounded w-20 h-16">
+                        <div className="rounded w-24 h-20">
                             <img src={photo_url} alt="Avatar Tailwind CSS Component" />
                         </div>
                     </div>
@@ -30,7 +30,7 @@ const MyItem = ({list}) => {
             <td>
                 {provider_name}
                 <br />
-                <span className="badge badge-ghost">{provider_email}</span>
+                <span className="text-base px-2 py-1 badge badge-ghost">{provider_email}</span>
             </td>
             <td className="text-lg">{car_color}</td>
             <th>
