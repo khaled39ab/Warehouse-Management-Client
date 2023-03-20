@@ -55,7 +55,11 @@ const AvailableCompany = () => {
 
     return (
         <div className='my-10 mx-8 p-5 rounded-lg' data-theme="autumn">
-            <h1 className='text-4xl font-bold mb-10 text-center'><span className='text-rose-400'>Dream </span> Come From...</h1>
+            <div className=' mb-10 text-center'>
+                <h1 className='text-4xl font-bold'><span className='text-rose-400'>Dream </span> Come From...</h1>
+                <p className='text-red-400'>Click to see brand's collection</p>
+            </div>
+
             <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2 mb-5'>
                 {
                     companyLogo.map(logos => <Company

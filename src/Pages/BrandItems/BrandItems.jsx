@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import BrandItem from './BrandItem';
 
 const BrandItems = () => {
@@ -7,7 +7,13 @@ const BrandItems = () => {
     const items = useLoaderData()
 
     return (
-        <div>
+        <div className='m-10 text-white'>
+            <h1 className='text-4xl font-bold text-center'>Selected Brand Collection</h1>
+            <div className='text-center my-10'>
+                {
+                    items.length < 1 && <div className="text-xl font-bold btn text-yellow-500">Oops!! Here have no Collection</div>
+                }
+            </div>
             {
                 items && items.map(item => <BrandItem
                     key={item._id}

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import BrandItems from '../../BrandItems/BrandItems';
 
 const Company = ({ logos }) => {
     const navigate = useNavigate();

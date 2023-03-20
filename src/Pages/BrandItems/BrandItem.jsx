@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const BrandItem = ({ item }) => {
 
-
     const { _id, company_name, car_model, car_color, model_year, car_price, quantity, provider_name, provider_email, photo_url, car_vin, description } = item;
 
+    
     return (
         <div className='m-20 rounded-2xl' data-theme="cupcake">
             <div className="card md:card-side bg-green-100 shadow-xl">
