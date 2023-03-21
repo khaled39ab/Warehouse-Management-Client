@@ -45,7 +45,7 @@ const ItemDetails = () => {
                     </div>
 
                     <div>
-                        <h3 className='text-rose-600 md:font-semibold lg:font-bold lg:text-xl'>Price: {car_price}</h3>
+                        <h3 className='text-rose-600 md:font-semibold lg:font-bold lg:text-xl'>Price: {car_price} <span className='font-extrabold text-xl'>৳</span></h3>
 
                         <p className='text-amber-900 md:font-semibold lg:font-bold lg:text-lg lg:my-3'>Vehicle Identification Number: {car_vin}</p>
 

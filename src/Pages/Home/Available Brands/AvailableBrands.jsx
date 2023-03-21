@@ -55,8 +55,8 @@ const AvailableCompany = () => {
 
     return (
         <div className='my-10 mx-8 p-5 rounded-lg' data-theme="autumn">
-            <div className=' mb-10 text-center'>
-                <h1 className='text-4xl font-bold'><span className='text-rose-400'>Dream </span> Come From...</h1>
+            <div className=' mb-8 text-center'>
+                <h1 className='text-4xl font-bold mb-3'><span className='text-rose-400'>Dream </span> Come From...</h1>
                 <p className='text-red-400'>Click to see brand's collection</p>
             </div>
 
