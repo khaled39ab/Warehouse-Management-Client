@@ -1,7 +1,7 @@
 import React from 'react';
 
-const MyItem = ({list}) => {
-    
+const MyItem = ({ list }) => {
+
     const { _id, company_name, car_model, car_color, model_year, car_price, quantity, provider_name, provider_email, photo_url, car_vin } = list;
 
 
@@ -17,12 +17,12 @@ const MyItem = ({list}) => {
             <td>
                 <div className="flex items-center space-x-3">
                     <div className="avatar">
-                        <div className="rounded w-24 h-20">
-                            <img src={photo_url} alt="Avatar Tailwind CSS Component" />
+                        <div className="rounded w-12 h-10 lg:w-24 lg:h-20">
+                            <img src={photo_url} alt="Car" />
                         </div>
                     </div>
                     <div>
-                        <div className="text-lg font-bold">{company_name} {car_model} {model_year}</div>
+                        <div className="text-sm font-semibold lg:text-lg lg:font-bold">{company_name} {car_model} {model_year}</div>
                         <div className="text-sm opacity-50">VIN: {car_vin}</div>
                     </div>
                 </div>
@@ -30,14 +30,14 @@ const MyItem = ({list}) => {
             <td>
                 {provider_name}
                 <br />
-                <span className="text-base px-2 py-1 badge badge-ghost">{provider_email}</span>
+                <span className="text-sm lg:text-base lg:px-2 lg:py-1 badge badge-ghost">{provider_email}</span>
             </td>
-            <td className="text-lg">{car_color}</td>
+            <td className="text-sm lg:text-lg">{car_color}</td>
             <th>
-                <div className="text-lg font-bold">{car_price}</div>
+                <div className="text-sm font-semibold lg:text-lg lg:font-bold">{car_price}</div>
             </th>
             <th>
-                <div className="text-lg font-bold">{quantity}</div>
+                <div className="text-sm font-semibold lg:text-lg lg:font-bold">{quantity}</div>
             </th>
         </tr>
     );

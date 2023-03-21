@@ -6,7 +6,6 @@ import SignUp from "../../Pages/Authentication/SignUp/SignUp";
 import NotFound from "../../Pages/NotFound/NotFound";
 import About from "../../Pages/About Us/About";
 import Blogs from "../../Pages/Blogs/Blogs";
-import Store from "../../Store Items/Store";
 import AddItem from "../../Pages/Features For User/Add Item/AddItem";
 import UpdateItem from "../../Pages/Features For User/Update An item/UpdateItem";
 import ItemDetails from "../../Pages/Home/Items/Item Details/ItemDetails";
@@ -38,10 +37,6 @@ export const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs />
-            },
-            {
-                path: '/store',
-                element: <Store />
             },
             {
                 path: '/add-item',
