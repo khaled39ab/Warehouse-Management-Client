@@ -1,15 +1,25 @@
 import React from 'react';
+import "react-confirm-alert/src/react-confirm-alert.css";
+import useConfirm from '../../../../hooks/useConfirm/useConfirm';
 
 const MyItem = ({ list }) => {
 
     const { _id, company_name, car_model, car_color, model_year, car_price, quantity, provider_name, provider_email, photo_url, car_vin } = list;
 
+    const confirmation = useConfirm('Are You Sure to Delete');
+    
+    const handleDelete = id => {
+        
+
+        confirmation();
+
+    }
 
     return (
         <tr className="hover">
             <th>
                 <label>
-                    <button className="btn btn-circle btn-outline">
+                    <button onClick={() => handleDelete(_id)} className="btn btn-circle btn-outline">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                     </button>
                 </label>
