@@ -1,17 +1,30 @@
 import React from 'react';
-import "react-confirm-alert/src/react-confirm-alert.css";
-import useConfirm from '../../../../hooks/useConfirm/useConfirm';
+import { confirmAlert } from "react-confirm-alert";
+// import useConfirm from '../../../../hooks/useConfirm/useConfirm';
 
 const MyItem = ({ list }) => {
 
     const { _id, company_name, car_model, car_color, model_year, car_price, quantity, provider_name, provider_email, photo_url, car_vin } = list;
-
-    const confirmation = useConfirm('Are You Sure to Delete');
     
     const handleDelete = id => {
-        
+        confirmAlert({
+            title: "Auto Car Confirmation box",
+            message: "Are You Sure to Delete",
+            buttons: [
+                {
+                    label: "Yes",
+                    onClick: () => {
+                        console.log(id);
+                    }
+                },
+                {
+                    label: "No"
+                    // onClick: () => alert("Click No")
+                }
+            ]
+        });
 
-        confirmation();
+        // confirmation();
 
     }
 
