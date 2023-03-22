@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import useFetch from '../../../../hooks/useFetch/useFetch';
 import Item from '../Item/Item';
 
 const Items = () => {
     const { data } = useFetch('http://localhost:4000/items');
-    console.log(data.length);
+    // console.log(data.length);
     return (
         <div className='my-10 mx-8 p-5 rounded-lg' data-theme="autumn">
             <h1 className='text-4xl font-bold mb-10 text-center'>Choose Your <span className='text-rose-400'>Dream </span></h1>
@@ -15,6 +16,11 @@ const Items = () => {
                         item={item}
                     ></Item>)
                 }
+            </div>
+            <div className='text-center'>
+                <Link to={'/inventory'}>
+                    <button className="btn btn-outline">Show All</button>
+                </Link>
             </div>
         </div>
     );

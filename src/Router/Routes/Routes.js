@@ -12,6 +12,7 @@ import ItemDetails from "../../Pages/Home/Items/Item Details/ItemDetails";
 import RequireAuth from "../RequireAuth/RequireAuth";
 import MyItems from "../../Pages/Features For User/My Items/MyItems";
 import BrandItems from "../../Pages/BrandItems/BrandItems";
+import Inventory from "../../Pages/Inventory/Inventory";
 
 export const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
             {
                 path: '/about',
                 element: <About />
+            },
+            {
+                path: '/inventory',
+                element: <Inventory />
             },
             {
                 path: '/blogs',
