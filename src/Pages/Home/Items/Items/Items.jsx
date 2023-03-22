@@ -5,7 +5,13 @@ import Item from '../Item/Item';
 
 const Items = () => {
     const { data } = useFetch('http://localhost:4000/items');
-    // console.log(data.length);
+    
+
+    if (data.length > 6) {
+        data.length = 6
+    };
+
+
     return (
         <div className='my-10 mx-8 p-5 rounded-lg' data-theme="autumn">
             <h1 className='text-4xl font-bold mb-10 text-center'>Choose Your <span className='text-rose-400'>Dream </span></h1>
@@ -17,11 +23,14 @@ const Items = () => {
                     ></Item>)
                 }
             </div>
-            <div className='text-center'>
-                <Link to={'/inventory'}>
-                    <button className="btn btn-outline">Show All</button>
-                </Link>
-            </div>
+            {
+                data.length > 5 &&
+                <div className='text-center'>
+                    <Link to={'/inventory'}>
+                        <button className="btn btn-outline">Show All</button>
+                    </Link>
+                </div>
+            }
         </div>
     );
 };

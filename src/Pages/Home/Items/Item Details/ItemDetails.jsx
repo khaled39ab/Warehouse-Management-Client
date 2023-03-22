@@ -57,7 +57,7 @@ const ItemDetails = () => {
                         <h3 className='text-rose-600 '>Available: {quantity}</h3>
                         {
                             quantity > 0 ?
-                                <button onClick={handleDelivered} className="btn btn-sm btn-outline btn-success">Delivered</button> :
+                                <button title='Want to deliver?' onClick={handleDelivered} className="btn btn-sm btn-outline btn-success">Delivered</button> :
                                 <button className="btn btn-sm btn-disabled" >Stock Out</button>
                         }
                     </div>

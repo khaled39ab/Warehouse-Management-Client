@@ -23,8 +23,8 @@ const SignIn = () => {
 
         passwordLogin(email, password)
             .then(res => {
-                const user = res.user;
-                console.log(user);
+                // const user = res.user;
+                // console.log(user);
                 navigate(from, { replace: true })
             })
             .catch(err => setError(err.message))
