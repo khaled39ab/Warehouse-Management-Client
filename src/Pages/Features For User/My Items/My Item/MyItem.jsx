@@ -1,11 +1,10 @@
 import React from 'react';
 import { confirmAlert } from "react-confirm-alert";
-// import useConfirm from '../../../../hooks/useConfirm/useConfirm';
 
 const MyItem = ({ list }) => {
 
     const { _id, company_name, car_model, car_color, model_year, car_price, quantity, provider_name, provider_email, photo_url, car_vin } = list;
-    
+
     const handleDelete = id => {
         confirmAlert({
             title: "Auto Car Confirmation box",
@@ -14,7 +13,11 @@ const MyItem = ({ list }) => {
                 {
                     label: "Yes",
                     onClick: () => {
-                        console.log(id);
+                        fetch(`http://localhost:4000/item/${id}`, {
+                            method: "DELETE"
+                        })
+                            .then(res => res.json())
+                            .then(data => console.log(data))
                     }
                 },
                 {
