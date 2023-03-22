@@ -1,7 +1,10 @@
 import React from 'react';
 import { confirmAlert } from "react-confirm-alert";
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const MyItem = ({ list }) => {
+    const navigate = useNavigate();
 
     const { _id, company_name, car_model, car_color, model_year, car_price, quantity, provider_name, provider_email, photo_url, car_vin } = list;
 
@@ -17,7 +20,12 @@ const MyItem = ({ list }) => {
                             method: "DELETE"
                         })
                             .then(res => res.json())
-                            .then(data => console.log(data))
+                            .then(data => {
+                                if (data.deletedCount > 0) {
+                                    toast(`You Delete ${company_name} ${car_model}`)
+                                    navigate('/')
+                                }
+                            })
                     }
                 },
                 {
@@ -26,10 +34,8 @@ const MyItem = ({ list }) => {
                 }
             ]
         });
+    };
 
-        // confirmation();
-
-    }
 
     return (
         <tr className="hover">
