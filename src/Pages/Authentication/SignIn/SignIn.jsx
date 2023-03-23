@@ -23,8 +23,25 @@ const SignIn = () => {
 
         passwordLogin(email, password)
             .then(res => {
-                // const user = res.user;
+                const user = res.user;
                 // console.log(user);
+                const currentUser = {
+                    email: user.email
+                };
+
+                fetch('http://localhost:4000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('warehouse-token', data.token)
+                    })
+
+
                 navigate(from, { replace: true })
             })
             .catch(err => setError(err.message))
