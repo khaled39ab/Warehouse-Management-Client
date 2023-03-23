@@ -30,7 +30,10 @@ const AddItem = () => {
         fetch('http://localhost:4000/items', {
             method: 'POST',
             headers: {
-                'Content-Type': "application/json"
+                'Content-Type': "application/json",
+                headers:{
+                    authorization: `Bearer ${localStorage.getItem('warehouse-token')}`
+                }
             },
             body: JSON.stringify(itemDetails)
         })

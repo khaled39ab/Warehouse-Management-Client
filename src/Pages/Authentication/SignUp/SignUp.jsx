@@ -5,7 +5,7 @@ import { AuthContext } from '../../../Context/UserContext/UserContext';
 import SocialSignIn from '../SocialSignIn/SocialSignIn';
 
 const SignUp = () => {
-    const { createUser, addUserName, verifyEmail } = useContext(AuthContext);
+    const { createUser, addUserName, verifyEmail, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -31,7 +31,7 @@ const SignUp = () => {
                         verifyEmail()
                         toast("Check your email and verify it.")
                     })
-
+                logOut();
                 navigate(from, { replace: true })
             })
             .catch(err => {

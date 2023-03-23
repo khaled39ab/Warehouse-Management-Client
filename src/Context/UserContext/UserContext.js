@@ -57,9 +57,28 @@ const UserContext = ({ children }) => {
     };
 
 
-    const passwordReset = (email) =>{
+    const passwordReset = (email) => {
         return sendPasswordResetEmail(auth, email);
     };
+
+
+    const getJWTToken = user => {
+        const currentUser = {
+            email: user.email
+        };
+
+        fetch('http://localhost:4000/jwt', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(currentUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+                localStorage.setItem('warehouse-token', data.token)
+            });
+    }
 
 
     const logOut = () => {
@@ -90,7 +109,8 @@ const UserContext = ({ children }) => {
         passwordReset,
         logOut,
         user,
-        isLoading
+        isLoading,
+        getJWTToken
     };
 
     return (

@@ -64,7 +64,7 @@ export const router = createBrowserRouter([
             {
                 path: '/brand-items/:brand',
                 element: <RequireAuth><BrandItems /></RequireAuth>,
-                loader: ({ params }) => fetch(`http://localhost:4000/items?company_name=${params.brand}`)
+                loader: ({ params }) => fetch(`http://localhost:4000/company-items?company_name=${params.brand}`)
             },
             {
                 path: '/delivered/:id',
