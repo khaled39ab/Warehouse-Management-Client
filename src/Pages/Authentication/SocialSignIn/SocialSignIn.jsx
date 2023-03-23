@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/UserContext/UserContext';
 
 const SocialSignIn = () => {
-    const { googleAuth, githubAuth } = useContext(AuthContext);
+    const { googleAuth, githubAuth, getJWTToken } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -13,7 +13,8 @@ const SocialSignIn = () => {
     const handleGoogleAuth = () => {
         googleAuth()
             .then(res => {
-                // const user = res.user;
+                const user = res.user;
+                getJWTToken(user)
                 navigate(from, { replace: true })
             })
             .catch(err => setError(err.message));
@@ -22,7 +23,8 @@ const SocialSignIn = () => {
     const handleGithubAuth = () => {
         githubAuth()
             .then(res => {
-                // const user = res.user;
+                const user = res.user;
+                getJWTToken(user)
                 navigate(from, { replace: true })
             })
             .catch(err => setError(err.message));
@@ -32,7 +34,7 @@ const SocialSignIn = () => {
         githubAuth()
             .then(res => {
                 const user = res.user;
-                console.log(user);
+                getJWTToken(user)
                 navigate(from, { replace: true })
             })
             .catch(err => setError(err.message));

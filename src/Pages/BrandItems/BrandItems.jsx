@@ -8,7 +8,7 @@ const BrandItems = () => {
 
     return (
         <div className='m-10 text-white'>
-            <h1 className='text-4xl font-bold text-center'>Selected Brand Collection</h1>
+            <h1 className='text-4xl font-bold text-center'>Selected Brand Collection: {items.length} Items</h1>
             <div className='text-center my-10'>
                 {
                     items.length < 1 && <div data-theme="synthwave" disabled className="text-xl font-bold btn text-white">Oops!! Here have no Collection</div>

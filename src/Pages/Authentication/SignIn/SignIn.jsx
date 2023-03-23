@@ -25,22 +25,6 @@ const SignIn = () => {
             .then(res => {
                 const user = res.user;
 
-                /* const currentUser = {
-                    email: user.email
-                };
-
-                fetch('http://localhost:4000/jwt', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(currentUser)
-                    .then(res => res.json())
-                    .then(data => {
-                        localStorage.setItem('warehouse-token', data.token)
-                    });
-                }) */
-
                 getJWTToken(user)
                 navigate(from, { replace: true })
             })

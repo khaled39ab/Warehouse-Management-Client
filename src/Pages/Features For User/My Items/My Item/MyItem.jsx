@@ -17,7 +17,10 @@ const MyItem = ({ list }) => {
                     label: "Yes",
                     onClick: () => {
                         fetch(`http://localhost:4000/item/${id}`, {
-                            method: "DELETE"
+                            method: "DELETE",
+                            headers: {
+                                authorization: `Bearer ${localStorage.getItem('warehouse-token')}`
+                            }
                         })
                             .then(res => res.json())
                             .then(data => {

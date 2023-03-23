@@ -16,7 +16,8 @@ const ItemDetails = () => {
         fetch(`http://localhost:4000/delivered/${_id}`, {
             method: 'PATCH',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('warehouse-token')}`
             },
             body: JSON.stringify(delivered)
         })
