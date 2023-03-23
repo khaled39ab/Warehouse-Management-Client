@@ -26,7 +26,8 @@ const UpdateItem = () => {
         fetch(`http://localhost:4000/item/${_id}`, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('warehouse-token')}`
             },
             body: JSON.stringify(updateInfo)
         })

@@ -8,8 +8,12 @@ const MyItems = () => {
     const [myList, setMyList] = useState([]);
 
     useEffect(() => {
-        const uri = `http://localhost:4000/items?provider_email=${user.email}`
-        fetch(uri)
+        const uri = `http://localhost:4000/my-items?provider_email=${user.email}`
+        fetch(uri, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('warehouse-token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setMyList(data))
     }, [user.email]);
@@ -19,7 +23,7 @@ const MyItems = () => {
         <div data-theme="bumblebee">
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
-                    
+
                     <thead>
                         <tr>
                             <th>

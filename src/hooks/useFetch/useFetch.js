@@ -5,7 +5,11 @@ const useFetch = (url) => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch(url)
+        fetch(url,{
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('warehouse-token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setData(data))
     }, [url])

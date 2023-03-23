@@ -24,7 +24,7 @@ const SignIn = () => {
         passwordLogin(email, password)
             .then(res => {
                 const user = res.user;
-                // console.log(user);
+                
                 const currentUser = {
                     email: user.email
                 };
@@ -39,10 +39,8 @@ const SignIn = () => {
                     .then(res => res.json())
                     .then(data => {
                         localStorage.setItem('warehouse-token', data.token)
-                    })
-
-
-                navigate(from, { replace: true })
+                        navigate(from, { replace: true })
+                    });
             })
             .catch(err => setError(err.message))
     };

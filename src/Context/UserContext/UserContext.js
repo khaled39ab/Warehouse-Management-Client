@@ -63,6 +63,7 @@ const UserContext = ({ children }) => {
 
 
     const logOut = () => {
+        localStorage.removeItem('warehouse-token');
         return signOut(auth)
     };
 
