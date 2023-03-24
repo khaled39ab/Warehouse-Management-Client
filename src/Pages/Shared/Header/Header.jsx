@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../asset/icons/car-care-logo.png';
 import { AuthContext } from '../../../Context/UserContext/UserContext';
 
 const Header = () => {
+    const navigate = useNavigate();
 
     const { user, logOut } = useContext(AuthContext);
 
@@ -12,6 +13,7 @@ const Header = () => {
     // console.log(user);
 
     const handleSignOut = () => {
+        navigate('/')
         logOut();
     }
 

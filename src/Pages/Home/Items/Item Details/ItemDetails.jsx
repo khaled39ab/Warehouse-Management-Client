@@ -24,7 +24,7 @@ const ItemDetails = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    toast(`Successfully Delivered ${company_name} ${car_model} ${model_year}`);
+                    toast(`Successfully Delivered a ${company_name} ${car_model} ${model_year}`);
                     navigate('/');
                 }
             })
@@ -32,12 +32,30 @@ const ItemDetails = () => {
     };
 
 
-    const handleRestock  = e => {
+    const handleRestock = e => {
         e.preventDefault();
 
-        const restock = e.target.restock.value;
+        const count = parseInt(e.target.restock.value)
 
-        console.log(restock);
+        const restock = {quantity: quantity + count};
+
+        fetch(`http://localhost:4000/restock/${_id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('warehouse-token')}`
+            },
+            body: JSON.stringify(restock)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast(`Successfully Restock ${count} of ${company_name} ${car_model} ${model_year}`);
+                    navigate('/');
+                }
+            })
+
+
         e.target.reset()
 
     };
@@ -49,7 +67,7 @@ const ItemDetails = () => {
                 <div className='md:m-10 rounded-xl'>
                     <figure><img src={photo_url} alt="Car" /></figure>
                     <form onSubmit={handleRestock} className='md:font-semibold lg:font-bold lg:text-xl border-2 text-center border-rose-600 flex justify-evenly py-2 mt-2 bg-white'>
-                        <input type="number" name='restock' placeholder="Restock Amount" className="input input-bordered input-info w-full max-w-xs input-sm" />
+                        <input type="number" name='restock' placeholder="Restock Amount" className="input input-bordered input-info w-full max-w-xs input-sm" required/>
                         <button type='submit' className="btn btn-sm btn-outline">Restock</button>
                     </form>
                 </div>
