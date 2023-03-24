@@ -29,13 +29,29 @@ const ItemDetails = () => {
                 }
             })
             .catch(err => console.log(err))
-    }
+    };
+
+
+    const handleRestock  = e => {
+        e.preventDefault();
+
+        const restock = e.target.restock.value;
+
+        console.log(restock);
+        e.target.reset()
+
+    };
+
 
     return (
         <div className='m-20 rounded-2xl' data-theme="cupcake">
             <div className="card md:card-side bg-green-100 shadow-xl">
                 <div className='md:m-10 rounded-xl'>
-                    <figure><img src={photo_url} alt="Movie" /></figure>
+                    <figure><img src={photo_url} alt="Car" /></figure>
+                    <form onSubmit={handleRestock} className='md:font-semibold lg:font-bold lg:text-xl border-2 text-center border-rose-600 flex justify-evenly py-2 mt-2 bg-white'>
+                        <input type="number" name='restock' placeholder="Restock Amount" className="input input-bordered input-info w-full max-w-xs input-sm" />
+                        <button type='submit' className="btn btn-sm btn-outline">Restock</button>
+                    </form>
                 </div>
                 <div className="card-body">
                     <h2 className="card-title font-bold md:text-xl sm:text-lg lg:font-extrabold lg:text-3xl text-purple-600 uppercase">{`${company_name} ${car_model} ${model_year}`}</h2>
