@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import JsVsNode from '../../asset/images/blogs/javascript-vs-nodejs.webp';
+import SqlVsNoSql from '../../asset/images/blogs/sql-vs-nosql.webp';
 
 const Blogs = () => {
     return (
@@ -21,6 +22,24 @@ const Blogs = () => {
                         </div>
                     </div>
                 </div>
+
+
+                {/* Difference between Sql and No Sql */}
+                <div className="card w-96 bg-base-100 shadow-xl">
+                    <figure><img src={SqlVsNoSql} alt="Sql NoSql" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title">Difference Between Sql and No Sql</h2>
+                        <p className='text-justify'><span className='text-red-600'>Interesting Subject: </span> Javascript can only be run in the browsers. But we can run Javascript outside the browser with the help of NodeJS. How?</p>
+                        <div className="card-actions justify-end">
+                            <Link to={'/sql-vs-nosql'}>
+                                <button className="btn btn-link">Read More...</button>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+
+
+
             </div>
         </div>
     );

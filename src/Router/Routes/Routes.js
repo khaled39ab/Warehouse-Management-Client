@@ -15,6 +15,7 @@ import BrandItems from "../../Pages/BrandItems/BrandItems";
 import Inventory from "../../Pages/Inventory/Inventory";
 import BuyingInfo from "../../Pages/Home/Buying Info/BuyingInfo";
 import JsVsNode from "../../Pages/Blogs/Subject/Js Vs Node/JsVsNode";
+import SqlNoSql from "../../Pages/Blogs/Subject/Sql Vs NoSql/SqlNoSql";
 
 export const router = createBrowserRouter([
     {
@@ -75,6 +76,10 @@ export const router = createBrowserRouter([
             {
                 path: '/js-vs-node',
                 element: <JsVsNode />
+            },
+            {
+                path: '/sql-vs-nosql',
+                element: <SqlNoSql />
             },
             {
                 path: '*',
