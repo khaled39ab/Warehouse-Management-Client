@@ -65,7 +65,7 @@ const ItemDetails = () => {
         <div className='m-20 rounded-2xl' data-theme="cupcake">
             <div className="card md:card-side bg-green-100 shadow-xl">
                 <div className='md:m-10 rounded-xl'>
-                    <figure><img src={photo_url} alt="Car" /></figure>
+                    <figure><img className='hover:scale-125 hover:delay-200 duration-700' src={photo_url} alt="Car" /></figure>
                     <form onSubmit={handleRestock} className='md:font-semibold lg:font-bold lg:text-xl border-2 text-center border-rose-600 flex justify-evenly py-2 mt-2 bg-white'>
                         <input type="number" name='restock' placeholder="Restock Amount" className="input input-bordered input-info w-full max-w-xs input-sm" required/>
                         <button type='submit' className="btn btn-sm btn-outline">Restock</button>

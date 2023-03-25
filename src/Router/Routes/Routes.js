@@ -66,14 +66,10 @@ export const router = createBrowserRouter([
                 element: <RequireAuth><BrandItems /></RequireAuth>,
                 loader: ({ params }) => fetch(`http://localhost:4000/company-items?company_name=${params.brand}`)
             },
-            {
-                path: '/delivered/:id',
-                loader: ({ params }) => fetch(`http://localhost:4000/delivered/${params.id}`)
-            },
-            {
-                path: '/restock/:id',
-                loader: ({ params }) => fetch(`http://localhost:4000/restock/${params.id}`)
-            },
+            // {
+            //     path: '/delivered/:id',
+            //     loader: ({ params }) => fetch(`http://localhost:4000/delivered/${params.id}`)
+            // },
             {
                 path: '*',
                 element: <NotFound />
