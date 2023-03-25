@@ -12,7 +12,7 @@ const JsVsNode = () => {
 
 
             <div className="relative overflow-x-auto">
-                <table className="w-full  text-left text-gray-500">
+                <table className="w-full text-justify text-gray-500">
                     <thead className="text-lg text-gray-700 uppercase bg-gray-200">
                         <tr>
                             <th scope="col" className="px-6 py-3">
