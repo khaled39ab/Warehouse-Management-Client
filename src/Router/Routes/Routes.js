@@ -13,6 +13,7 @@ import RequireAuth from "../RequireAuth/RequireAuth";
 import MyItems from "../../Pages/Features For User/My Items/MyItems";
 import BrandItems from "../../Pages/BrandItems/BrandItems";
 import Inventory from "../../Pages/Inventory/Inventory";
+import BuyingInfo from "../../Pages/Home/Buying Info/BuyingInfo";
 
 export const router = createBrowserRouter([
     {
@@ -66,10 +67,10 @@ export const router = createBrowserRouter([
                 element: <RequireAuth><BrandItems /></RequireAuth>,
                 loader: ({ params }) => fetch(`http://localhost:4000/company-items?company_name=${params.brand}`)
             },
-            // {
-            //     path: '/delivered/:id',
-            //     loader: ({ params }) => fetch(`http://localhost:4000/delivered/${params.id}`)
-            // },
+            {
+                path: '/buying-info',
+                element: <BuyingInfo />
+            },
             {
                 path: '*',
                 element: <NotFound />
