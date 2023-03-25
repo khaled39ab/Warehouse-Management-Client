@@ -14,6 +14,7 @@ import MyItems from "../../Pages/Features For User/My Items/MyItems";
 import BrandItems from "../../Pages/BrandItems/BrandItems";
 import Inventory from "../../Pages/Inventory/Inventory";
 import BuyingInfo from "../../Pages/Home/Buying Info/BuyingInfo";
+import JsVsNode from "../../Pages/Blogs/Subject/Js Vs Node/JsVsNode";
 
 export const router = createBrowserRouter([
     {
@@ -70,6 +71,10 @@ export const router = createBrowserRouter([
             {
                 path: '/buying-info',
                 element: <BuyingInfo />
+            },
+            {
+                path: '/js-vs-node',
+                element: <JsVsNode />
             },
             {
                 path: '*',
