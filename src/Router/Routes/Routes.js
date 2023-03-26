@@ -17,6 +17,7 @@ import BuyingInfo from "../../Pages/Home/Buying Info/BuyingInfo";
 import JsVsNode from "../../Pages/Blogs/Subject/Js Vs Node/JsVsNode";
 import SqlNoSql from "../../Pages/Blogs/Subject/Sql Vs NoSql/SqlNoSql";
 import AboutJWT from "../../Pages/Blogs/Subject/About JWT/AboutJWT";
+import ManageUser from "../../Pages/Manage User/ManageUser";
 
 export const router = createBrowserRouter([
     {
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs />
+            },
+            {
+                path: '/manage-user',
+                element: <RequireAuth><ManageUser /></RequireAuth>
             },
             {
                 path: '/add-item',
