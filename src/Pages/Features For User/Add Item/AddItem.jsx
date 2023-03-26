@@ -8,7 +8,7 @@ const AddItem = () => {
     const { user } = useContext(AuthContext);
 
     const [itemInfo, setItemInfo] = useState({});
-    
+
     const navigate = useNavigate();
 
     const getItemInfo = e => {
@@ -26,20 +26,19 @@ const AddItem = () => {
             provider_name: user.displayName,
             provider_email: user.email
         };
+        console.log(itemDetails);
 
         fetch('http://localhost:4000/items', {
             method: 'POST',
             headers: {
                 'Content-Type': "application/json",
-                headers:{
-                    authorization: `Bearer ${localStorage.getItem('warehouse-token')}`
-                }
+                authorization: `Bearer ${localStorage.getItem('warehouse-token')}`
             },
             body: JSON.stringify(itemDetails)
         })
             .then(res => res.json())
             .then(data => {
-                if(data.acknowledged){
+                if (data.acknowledged) {
                     toast("Successfully Added Your Item");
                     navigate('/');
                 }

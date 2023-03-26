@@ -2,9 +2,9 @@ import React from 'react';
 
 const About = () => {
     return (
-        <div className="container my-10 px-6 mx-auto py-10" data-theme="cupcake">
+        <div className="container my-10 px-6 mx-auto" data-theme="cupcake">
 
-            <section className="mb-32 text-gray-800">
+            <section className="py-12 text-gray-800">
                 <div className="flex justify-center">
                     <div className="text-center lg:max-w-3xl md:max-w-xl">
                         <h2 className="text-3xl font-bold mb-12 px-6 uppercase">Contact us</h2>

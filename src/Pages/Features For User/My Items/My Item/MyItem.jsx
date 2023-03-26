@@ -16,7 +16,7 @@ const MyItem = ({ list }) => {
                 {
                     label: "Yes",
                     onClick: () => {
-                        fetch(`http://localhost:4000/item/${id}`, {
+                        fetch(`https://warehouse-management-server-six.vercel.app/item/${id}`, {
                             method: "DELETE",
                             headers: {
                                 authorization: `Bearer ${localStorage.getItem('warehouse-token')}`
