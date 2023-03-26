@@ -37,7 +37,7 @@ const Header = () => {
                                 <li><Link>Submenu 2</Link></li>
                             </ul>
                         </li> */}
-                        <li><Link to={'/about'}>About us</Link></li>
+                        <li><Link to={'/contact'}>Contact us</Link></li>
                     </ul>
                 </div>
                 <Link to={'/'} className="btn btn-ghost normal-case text-xl">
@@ -59,7 +59,7 @@ const Header = () => {
                             <li><Link>Submenu 2</Link></li>
                         </ul>
                     </li> */}
-                    <li><Link to={'/about'}>About Us</Link></li>
+                    <li><Link to={'/contact'}>Contact us</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">
