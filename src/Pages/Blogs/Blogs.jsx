@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import JsVsNode from '../../asset/images/blogs/javascript-vs-nodejs.webp';
 import SqlVsNoSql from '../../asset/images/blogs/sql-vs-nosql.webp';
+import aboutJwt from '../../asset/images/blogs/jwt.png';
 
 const Blogs = () => {
     return (
@@ -14,7 +15,7 @@ const Blogs = () => {
                     <figure><img src={JsVsNode} alt="JsNode" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">Difference Between Javascript and Node js</h2>
-                        <p className='text-justify'><span className='text-red-600'>Interesting Subject: </span> Javascript can only be run in the browsers. But we can run Javascript outside the browser with the help of NodeJS. How?</p>
+                        <p className='text-justify'><span className='text-red-600'>Interesting matter is: </span> Javascript can only be run in the browsers. But we can run Javascript outside the browser with the help of NodeJS. How?</p>
                         <div className="card-actions justify-end">
                             <Link to={'/js-vs-node'}>
                                 <button className="btn btn-link">Read More...</button>
@@ -38,7 +39,21 @@ const Blogs = () => {
                     </div>
                 </div>
 
-
+                {/* about jwt */}
+                <div className="card w-96 bg-base-100 shadow-xl">
+                    <figure><img src={aboutJwt} alt="jwt" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title">What is JWT. How it works?</h2>
+                        <p className='text-justify'><span className='text-red-600'>JWT: </span> or JSON Web Token. <br />
+                            JSON Web Token (JWT) is an open standard for securely transmitting information between parties as JSON object. It is compact, readable and digitally signed using a private key/ or a public key pair by the Identity Provider(IdP).
+                        </p>
+                        <div className="card-actions justify-end">
+                            <Link to={'/about-jwt'}>
+                                <button className="btn btn-link">Read More...</button>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
