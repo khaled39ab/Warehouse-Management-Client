@@ -32,11 +32,12 @@ const SignIn = () => {
     };
 
     const handlePasswordReset = () => {
-        // eslint-disable-next-line no-useless-escape
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailId)) {
-            passwordReset(emailId);
-            toast("Password Reset successfully. Check Your Email.");
-        }
+        if(!emailId){
+            return toast("Enter your email first")
+        };
+
+        passwordReset(emailId);
+        toast("Password Reset successfully. Check Your Email.");
     };
 
 
