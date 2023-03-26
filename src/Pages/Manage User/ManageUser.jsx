@@ -11,9 +11,9 @@ const ManageUser = () => {
             <div className="card card-side bg-base-100 shadow-xl">
                 <figure><img src={user?.photoURL} alt="User img" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title">User Name: {user?.displayName}</h2>
-                    <h2 className="card-title">User Email: {user?.email}</h2>
-                    <p>Email Verified: {user?.emailVerified ? "Verified" : "Not Verified"}</p>
+                    <h2 className="card-title text-purple-700">User Name: {user?.displayName}</h2>
+                    <h2 className="card-title text-purple-700">User Email: {user?.email}</h2>
+                    <p className='text-red-700'>Email Verified: {user?.emailVerified ? "Verified" : "Not Verified"}</p>
                     <h2 className="card-title mt-5">Quick Link</h2>
                     <div className="card-actions justify-between">
                         <Link to={'/inventory'}>
