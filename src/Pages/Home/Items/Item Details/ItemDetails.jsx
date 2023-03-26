@@ -37,7 +37,7 @@ const ItemDetails = () => {
 
         const count = parseInt(e.target.restock.value)
 
-        const restock = {quantity: quantity + count};
+        const restock = {quantity: parseInt(quantity) + count};
 
         fetch(`https://warehouse-management-server-six.vercel.app/restock/${_id}`, {
             method: 'PATCH',
