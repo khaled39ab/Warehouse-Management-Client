@@ -13,7 +13,7 @@ const ItemDetails = () => {
     const handleDelivered = () => {
         const delivered = { quantity: quantity - 1 };
 
-        fetch(`http://localhost:4000/delivered/${_id}`, {
+        fetch(`https://warehouse-management-server-six.vercel.app/delivered/${_id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ const ItemDetails = () => {
 
         const restock = {quantity: quantity + count};
 
-        fetch(`http://localhost:4000/restock/${_id}`, {
+        fetch(`https://warehouse-management-server-six.vercel.app/restock/${_id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

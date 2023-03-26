@@ -8,7 +8,7 @@ const MyItems = () => {
     const [myList, setMyList] = useState([]);
 
     useEffect(() => {
-        const uri = `http://localhost:4000/my-items?provider_email=${user.email}`
+        const uri = `https://warehouse-management-server-six.vercel.app/my-items?provider_email=${user.email}`
         fetch(uri, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('warehouse-token')}`

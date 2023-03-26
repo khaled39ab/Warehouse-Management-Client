@@ -3,7 +3,7 @@ import useFetch from '../../hooks/useFetch/useFetch';
 import Item from '../Home/Items/Item/Item';
 
 const Inventory = () => {
-    const { data } = useFetch('http://localhost:4000/items');
+    const { data } = useFetch('https://warehouse-management-server-six.vercel.app/items');
 
     return (
         <div className='my-10 mx-8 p-5 rounded-lg' data-theme="autumn">
