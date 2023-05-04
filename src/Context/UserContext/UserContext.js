@@ -67,7 +67,7 @@ const UserContext = ({ children }) => {
             email: user.email
         };
 
-        fetch('http://localhost:4000/jwt', {
+        fetch('https://warehouse-management-server-six.vercel.app/jwt', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

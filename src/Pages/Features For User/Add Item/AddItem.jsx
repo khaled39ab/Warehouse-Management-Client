@@ -27,7 +27,7 @@ const AddItem = () => {
             provider_email: user.email
         };
 
-        fetch('http://localhost:4000/items', {
+        fetch('https://warehouse-management-server-six.vercel.app/items', {
             method: 'POST',
             headers: {
                 'Content-Type': "application/json",

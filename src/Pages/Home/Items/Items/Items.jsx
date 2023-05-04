@@ -4,7 +4,7 @@ import useFetch from '../../../../hooks/useFetch/useFetch';
 import Item from '../Item/Item';
 
 const Items = () => {
-    const { data } = useFetch('http://localhost:4000/items');
+    const { data } = useFetch('https://warehouse-management-server-six.vercel.app/items');
 
 
     if (data.length > 6) {

@@ -59,12 +59,12 @@ export const router = createBrowserRouter([
             {
                 path: '/item/:id',
                 element: <RequireAuth><UpdateItem /></RequireAuth>,
-                loader: ({ params }) => fetch(`http://localhost:4000/item/${params.id}`)
+                loader: ({ params }) => fetch(`https://warehouse-management-server-six.vercel.app/item/${params.id}`)
             },
             {
                 path: '/itemDetails/:id',
                 element: <RequireAuth><ItemDetails /></RequireAuth>,
-                loader: ({ params }) => fetch(`http://localhost:4000/item/${params.id}`)
+                loader: ({ params }) => fetch(`https://warehouse-management-server-six.vercel.app/item/${params.id}`)
             },
             {
                 path: '/my-items',
@@ -73,7 +73,7 @@ export const router = createBrowserRouter([
             {
                 path: '/brand-items/:brand',
                 element: <RequireAuth><BrandItems /></RequireAuth>,
-                loader: ({ params }) => fetch(`http://localhost:4000/company-items?company_name=${params.brand}`)
+                loader: ({ params }) => fetch(`https://warehouse-management-server-six.vercel.app/company-items?company_name=${params.brand}`)
             },
             {
                 path: '/buying-info',
