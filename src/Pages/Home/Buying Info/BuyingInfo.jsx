@@ -4,7 +4,7 @@ import InfoCard from './InfoCard';
 
 const BuyingInfo = () => {
 
-    const { data } = useFetch('https://warehouse-management-server-six.vercel.app/buying-info');
+    const { data } = useFetch('http://localhost:4000/buying-info');
 
 
     return (

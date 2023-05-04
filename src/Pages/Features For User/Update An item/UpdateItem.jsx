@@ -23,7 +23,7 @@ const UpdateItem = () => {
     const handleUpdate = e => {
         e.preventDefault();
 
-        fetch(`https://warehouse-management-server-six.vercel.app/item/${_id}`, {
+        fetch(`http://localhost:4000/item/${_id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
